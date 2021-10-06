@@ -1,0 +1,12 @@
+Type,Input value
+String,test
+Html,<html><body>test</body></html>
+javascript,alert('test');
+Number,1
+Number,0
+Number,-1
+Number,1.1
+math,1/1
+math,2/0
+math,1*1
+special charcters,"~!@#$%^&*()_+=-`{}:""<>?[];'\|,./"

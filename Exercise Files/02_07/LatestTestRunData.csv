@@ -1,0 +1,11 @@
+Test Name,Run Time,Run Date,Run Status
+Test 1,10,03/06/2018,Pass
+Test 2,8,03/06/2018,Pass
+Test 3,16,03/06/2018,Fail
+Test 4,20,03/06/2018,Pass
+Test 5,20,03/06/2018,Skipped
+Test 6,1,03/06/2018,Pass
+Test 7,10,03/06/2018,Pass
+Test 8,11,03/06/2018,Pass
+Test 9,2,03/06/2018,Fail
+Test 10,24,03/06/2018,Pass
