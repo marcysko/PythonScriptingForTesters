@@ -6,8 +6,8 @@ This course examines a few ways to use scripts to solve common challenges faced 
 
 ## Objectives
 
--Driving API calls with scripting
--API authentication
+*Driving API calls with scripting
+*API authentication
 -Parsing API data
 -Automating reports with Google APIs
 -Using the Google Charts and Sheets APIs
