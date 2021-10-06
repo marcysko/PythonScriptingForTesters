@@ -6,11 +6,11 @@ This course examines a few ways to use scripts to solve common challenges faced 
 
 ## Objectives
 
-*Driving API calls with scripting
-*API authentication
--Parsing API data
--Automating reports with Google APIs
--Using the Google Charts and Sheets APIs
--Preparing test sites with Selenium WebDriver
--Analyzing test data with scripting
--Generating pseudo input data for testing
+* Driving API calls with scripting
+* API authentication
+* Parsing API data
+* Automating reports with Google APIs
+* Using the Google Charts and Sheets APIs
+* Preparing test sites with Selenium WebDriver
+* Analyzing test data with scripting
+* Generating pseudo input data for testing
