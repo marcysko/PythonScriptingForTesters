@@ -6,13 +6,19 @@ import csv
 #read in the data from file
 
 data_list = []
-with open('TestAnalysisData.csv') as csv_file:
-    #read in data using csv reader
+with open('/Users/marciaskousen/Desktop/PythonScriptingForTesters/Exercise Files/02_03/TestAnalysisData.csv') as csvfile:
+    file_reader = csv.reader(csvfile)
+    for row in file_reader:
+        data_list.append(row)
+   
 
 #new list is initialized with headers
 chart_data = [data_list[0]]
 for row in data_list[1:]:
-    #format each row of the data_list and add to chart_data
+    num_asserts = int(row[1])
+    num_failed_asserts = int(row[2])
+    chart_data.append([row[0],num_asserts,num_failed_asserts])
+    
 
 
 #create the html for the chart
@@ -44,9 +50,11 @@ htmlString = Template("""<html><head><script type="text/javascript" src="https:/
 
 chart_data_str = ''
 for row in chart_data[1:]:
-    #create the data string
+    chart_data_str += '%s, \n'%row
     
 #substitute the data into the template
-
+completed_html = htmlString.substitute(labels=chart_data[0],
+data=chart_data_str)
 with open('Chart.html','w') as f:
     #write the html string you've create to a file
+    f.write(completed_html)
