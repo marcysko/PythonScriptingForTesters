@@ -8,14 +8,12 @@ client = gspread.authorize(creds)
 
 sheet = client.open('TextFieldInputs').sheet1
 
-#get the data from the spreadsheet
-all_values = 
+all_values = sheet.get_all_values()
 
-#get the values we want out of the data
 input_data = []
+for row in all_values[1:]:
+    input_data.append(row[1])
 
-
-# use selenium to put that data in to the comment box
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -35,24 +33,38 @@ def login(driver):
 
 login(driver)
 
-#set an employee
+#fill out the rest of the form
 driver.find_element_by_id('assignleave_txtEmployee_empName').send_keys('John Smith')
-
-#assign a leave type
 leave_types = driver.find_element_by_id('assignleave_txtLeaveType')
-leave_type_options = 
+leave_type_options = leave_types.find_elements_by_tag_name('option')
+for option in leave_type_options:
+    if option.get_attribute("value") == "2":
+        option.click()
+        break
 
-#get start and end date element
 start_date = driver.find_element_by_id('assignleave_txtFromDate')
 end_date = driver.find_element_by_id('assignleave_txtToDate')
 
-#assign values to start and end date
+start_date.click()
+start_date.send_keys("2018-04-01")
+start_date.send_keys(Keys.ENTER)
+time.sleep(0.5)
 
-#Send the input
+end_date.click()
+end_date.send_keys(Keys.CONTROL + "a")
+end_date.send_keys("2018-04-08")
+end_date.send_keys(Keys.ENTER)
+
 for input_item in input_data:
     #get the comment element
     comment_text_area = driver.find_element_by_id('assignleave_txtComment')
-    #get the assign button
+    #send the input
+    comment_text_area.send_keys(input_item)
+    # click the assign button
+    time.sleep(0.5)
     assign_button = driver.find_element_by_id('assignBtn')
-    #send the input to the comment text area
-
+    assign_button.click()
+    #click ok on the confirmation popup
+    time.sleep(0.5)
+    driver.find_element_by_id('confirmOkButton').click()
+    time.sleep(0.1)
